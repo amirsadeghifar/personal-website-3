@@ -11,6 +11,7 @@ import {
   MorphingDialogDescription,
   MorphingDialogContainer,
 } from "@/components/core/morphing-dialog";
+import { Tilt } from "@/components/motion-primitives/tilt";
 import { ExternalLinkIcon } from "lucide-react";
 
 const colorClasses = {
@@ -128,24 +129,26 @@ export default function ProjectCard({ project }: ProjectCardProps) {
         duration: 0.25,
       }}
     >
-      <MorphingDialogTrigger
-        style={{ borderRadius: "16px" }}
-        className={`w-full h-full overflow-hidden ${colorClasses[project.color]}`}
-      >
-        {/* Pattern area */}
-        <div className="h-2/3 w-full p-4">
-          <Pattern color={project.color} />
-        </div>
-        {/* Title area */}
-        <div className={`h-1/3 px-4 pb-4 flex flex-col justify-end ${textColorClasses[project.color]}`}>
-          <MorphingDialogTitle className="text-2xl md:text-3xl font-medium leading-tight">
-            {project.title}
-          </MorphingDialogTitle>
-          <MorphingDialogSubtitle className="hidden">
-            {project.description}
-          </MorphingDialogSubtitle>
-        </div>
-      </MorphingDialogTrigger>
+      <Tilt rotationFactor={20} isRevese>
+        <MorphingDialogTrigger
+          style={{ borderRadius: "16px" }}
+          className={`w-full h-full overflow-hidden ${colorClasses[project.color]}`}
+        >
+          {/* Pattern area */}
+          <div className="h-2/3 w-full p-4">
+            <Pattern color={project.color} />
+          </div>
+          {/* Title area */}
+          <div className={`h-1/3 px-4 pb-4 flex flex-col justify-end ${textColorClasses[project.color]}`}>
+            <MorphingDialogTitle className="text-2xl md:text-3xl font-medium leading-tight">
+              {project.title}
+            </MorphingDialogTitle>
+            <MorphingDialogSubtitle className="hidden">
+              {project.description}
+            </MorphingDialogSubtitle>
+          </div>
+        </MorphingDialogTrigger>
+      </Tilt>
 
       <MorphingDialogContainer>
         <MorphingDialogContent

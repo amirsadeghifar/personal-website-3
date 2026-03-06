@@ -24,6 +24,18 @@ export const projects: Project[] = [
     link: "https://splinter-app.github.io/",
   },
   {
+    id: "design-stash",
+    title: "Design Stash",
+    description: "curated design tools and inspiration",
+    longDescription:
+      "A tool for collecting, organizing, and sharing design inspiration. Save references from across the web and keep your creative library in one place.",
+    technologies: [],
+    color: "cream",
+    pattern: "grid",
+    image: "/design-stash.png",
+    link: "https://designstash.dev",
+  },
+  {
     id: "cartridge",
     title: "Cartridge",
     description: "building tools that matter",
