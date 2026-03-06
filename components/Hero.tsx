@@ -12,8 +12,6 @@ export default function Hero() {
       {/* Subtitle */}
       <p className="text-muted-foreground text-base md:text-lg text-center max-w-md">
         software developer
-        <br />
-        crafting digital experiences
       </p>
     </section>
   );

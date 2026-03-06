@@ -10,19 +10,11 @@ export default function About() {
 
       <div className="space-y-6 text-muted-foreground leading-relaxed">
         <p>
-          i&apos;m a full-stack software engineer with a passion for design and
-          crafting digital experiences that feel intuitive and intentional
+        i like building things - mostly digital
 
-        </p>
-
-        <p>
-          i care about the details—the subtle interactions, the flow, the moments
-          that make software feel human
-        </p>
-
-        <p>
-          outside of building things, i stay active through sports, explore the
-          outdoors, and embrace new adventures whenever i can
+        <br />
+        
+        i fixate on details in interfaces and i think craft still matters
         </p>
       </div>
     </section>

@@ -1,121 +1,40 @@
-"use client";
-
-import { useState } from "react";
 import { projects } from "@/data/projects";
-import ProjectCard from "./ProjectCard";
+import { ExternalLinkIcon } from "lucide-react";
+
+const splinter = projects.find((p) => p.id === "splinter")!;
 
 export default function ProjectCards() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
-  const goToPrevious = () => {
-    setCurrentIndex((prev) => (prev === 0 ? projects.length - 1 : prev - 1));
-  };
-
-  const goToNext = () => {
-    setCurrentIndex((prev) => (prev === projects.length - 1 ? 0 : prev + 1));
-  };
-
   return (
     <section className="pt-16 pb-24 px-4">
-      <div className="relative flex items-center justify-center gap-2">
-        {/* Previous Arrow */}
-        <button
-          onClick={goToPrevious}
-          className="shrink-0 p-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-          aria-label="Previous project"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M15 19l-7-7 7-7"
+      <div className="flex justify-center">
+        <div className="relative flex h-auto w-full max-w-[500px] flex-col overflow-hidden rounded-3xl bg-neutral-900">
+          {/* Image */}
+          <div className="h-64 w-full">
+            <img
+              src={splinter.image}
+              alt={splinter.title}
+              className="w-full h-full object-cover"
             />
-          </svg>
-        </button>
+          </div>
 
-        {/* Cards Container */}
-        <div className="relative flex items-center justify-center mx-[180px] md:mx-[220px]">
-          {projects.map((project, index) => {
-            const offset = index - currentIndex;
-            // Handle wrapping for continuous loop
-            let adjustedOffset = offset;
-            if (offset > projects.length / 2) adjustedOffset = offset - projects.length;
-            if (offset < -projects.length / 2) adjustedOffset = offset + projects.length;
-
-            const isActive = adjustedOffset === 0;
-            const isAdjacent = Math.abs(adjustedOffset) === 1;
-
-            let translateX = adjustedOffset * 180;
-            let scale = isActive ? 1 : 0.9;
-            let opacity = isActive ? 1 : isAdjacent ? 0.5 : 0;
-            let zIndex = isActive ? 10 : isAdjacent ? 5 : 0;
-            let rotation = isActive ? 0 : adjustedOffset * 2;
-
-            return (
-              <div
-                key={project.id}
-                className="absolute w-[220px] h-[300px] md:w-[260px] md:h-[360px] transition-transform duration-200"
-                style={{
-                  transform: `translateX(${translateX}px) scale(${scale}) rotate(${rotation}deg)`,
-                  opacity,
-                  zIndex,
-                  pointerEvents: isActive || isAdjacent ? "auto" : "none",
-                  cursor: isAdjacent ? "pointer" : "default",
-                }}
-                onClick={() => {
-                  if (isAdjacent) {
-                    setCurrentIndex(index);
-                  }
-                }}
+          {/* Content */}
+          <div className="p-6 text-white">
+            <h3 className="text-2xl font-medium">{splinter.title}</h3>
+            <p className="mt-1 text-white/70">{splinter.description}</p>
+            {/* Link */}
+            {splinter.link && (
+              <a
+                href={splinter.link}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 inline-flex items-center gap-1 text-sm underline underline-offset-2 text-white/70 hover:text-white"
               >
-                <ProjectCard project={project} />
-              </div>
-            );
-          })}
-          {/* Spacer to maintain layout */}
-          <div className="w-[220px] h-[300px] md:w-[260px] md:h-[360px]" />
+                View project
+                <ExternalLinkIcon className="h-3 w-3" />
+              </a>
+            )}
+          </div>
         </div>
-
-        {/* Next Arrow */}
-        <button
-          onClick={goToNext}
-          className="shrink-0 p-2 text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-          aria-label="Next project"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={1.5}
-              d="M9 5l7 7-7 7"
-            />
-          </svg>
-        </button>
-      </div>
-
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-6">
-        {projects.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrentIndex(index)}
-            className={`w-1.5 h-1.5 rounded-full transition-colors ${
-              index === currentIndex ? "bg-foreground" : "bg-muted-foreground/40"
-            }`}
-            aria-label={`Go to project ${index + 1}`}
-          />
-        ))}
       </div>
     </section>
   );

@@ -14,7 +14,7 @@ export default function Contact() {
 
       <div className="flex gap-6">
         <a
-          href="mailto:hello@example.com"
+          href="mailto:amfar777@gmail.com"
           className="text-foreground hover:text-card-cyan transition-colors"
           aria-label="Email"
         >
@@ -34,7 +34,7 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://github.com"
+          href="https://github.com/amirsadeghifar"
           target="_blank"
           rel="noopener noreferrer"
           className="text-foreground hover:text-card-cyan transition-colors"
@@ -54,7 +54,7 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://linkedin.com"
+          href="https://linkedin.com/in/amirsadeg/"
           target="_blank"
           rel="noopener noreferrer"
           className="text-foreground hover:text-card-cyan transition-colors"
@@ -72,7 +72,7 @@ export default function Contact() {
         </a>
 
         <a
-          href="https://twitter.com"
+          href="https://x.com/princeofperzha"
           target="_blank"
           rel="noopener noreferrer"
           className="text-foreground hover:text-card-cyan transition-colors"
