@@ -33,7 +33,7 @@ export const projects: Project[] = [
     color: "cream",
     pattern: "grid",
     image: "/design-stash.png",
-    link: "https://designstash.dev",
+    link: "https://design-stash.vercel.app",
   },
   {
     id: "cartridge",
