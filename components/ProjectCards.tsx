@@ -5,7 +5,7 @@ import { Tilt } from "@/components/motion-primitives/tilt";
 import { ExternalLinkIcon } from "lucide-react";
 
 const splinter = projects.find((p) => p.id === "splinter")!;
-const designStash = projects.find((p) => p.id === "design-stash")!;
+const typekit = projects.find((p) => p.id === "typekit")!;
 
 function Card({ project }: { project: (typeof projects)[number] }) {
   return (
@@ -47,7 +47,7 @@ export default function ProjectCards() {
     <section className="pt-16 pb-24 px-4">
       <div className="mx-auto max-w-3xl grid grid-cols-1 md:grid-cols-2 gap-6">
         <Card project={splinter} />
-        <Card project={designStash} />
+        <Card project={typekit} />
       </div>
     </section>
   );

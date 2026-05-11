@@ -24,6 +24,18 @@ export const projects: Project[] = [
     link: "https://splinter-app.github.io/",
   },
   {
+    id: "typekit",
+    title: "TypeKit",
+    description: "interactive mechanical keyboard showcase",
+    longDescription:
+      "An interactive showcase of mechanical keyboards with multiple keycap colorways. Explore Keychron and Apple layouts across Classic, Mint, Royal, Dolch, Sand, and Scarlet themes, with light/dark modes and sound toggles.",
+    technologies: ["Next.js", "React", "Tailwind CSS", "Motion"],
+    color: "cream",
+    pattern: "grid",
+    image: "/typekit.png",
+    link: "https://typekit.vercel.app/",
+  },
+  {
     id: "design-stash",
     title: "Design Stash",
     description: "curated design tools and inspiration",
